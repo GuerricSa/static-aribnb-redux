@@ -1,21 +1,19 @@
-// external modules
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers } from 'redux';
+import { configureStore } from '@reduxjs/toolkit'; // Importez configureStore depuis Redux Toolkit
 
-// internal modules
 import App from './components/app';
+import flatsReducer from './reducers/flat_reducer'; // Importez votre rootReducer
+
 import '../assets/stylesheets/application.scss';
 
-// State and reducers
-const reducers = combineReducers({
-  changeMe: (state = null, action) => state
+const store = configureStore({
+  flats: flatsReducer,
 });
 
-// render an instance of the component in the DOM
 ReactDOM.render(
-  <Provider store={createStore(reducers)}>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root')

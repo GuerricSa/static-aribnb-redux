@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
+import FlatList from './flat_list';
+import Map from './map';
 
-const App = () => {
-  return (
-    <div className="app">
-      <p>React + Redux starter</p>
-    </div>
-  );
-};
+class App extends Component {
+  render () {
+    return (
+      <div className="raw">
+        <FlatList />
+        <Map />
+      </div>
+    );
+  }
+}
 
 export default App;
